@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhiteBoard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- <h1>WHITEBOARD APPLICATION</h1> -->
+    <div class="tools">
+        <div class="tool-button">
+            <i class="fas fa-times" id="close-tool"></i>
+            <i class="fas fa-bars hide" id="open-tool"></i>
+            <!-- toggling of hide on click -->
+        </div>
+        <div class="toolbox add-animations">
+            <div class="tool active" id="pencil">
+                <img src="./resources-master/NewIcons/Black_Pencil.svg" alt="Image Icon">
+            </div>
+            <div class="tool" id="eraser">
+                <img src="./resources-master/NewIcons/Eraser.svg" alt="Image Icon">
+            </div>
+            <div class="tool" id="sticky-note">
+                <img src="./resources-master/NewIcons/StickyNote.svg" alt="Image Icon">
+            </div>
+            <div class="tool" id="upload">
+                <img src="./resources-master/NewIcons/Photo.svg" alt="Image Icon" srcset="">
+                <input type="file" name="" id="photo-upload">
+                <!-- on input always apply the change event -->
+            </div>
+            <div class="tool" id="download">
+                <img src="./resources-master/NewIcons/Download.svg" alt="Image Icon">
+            </div>
+            <div class="tool" id="undo">
+                <img src="./resources-master/NewIcons/Undo.svg" alt="Image Icon">
+            </div>
+            <div class="tool" id="redo">
+                <img src="./resources-master/NewIcons/Redo.svg" alt="Image Icon">
+            </div>
+        </div>
+    </div>
+    <!-- either just below pencil tool put its options the do display flex position absolute and top left setting to get it to the desired place value -->
+    <div class="pencil-options">
+        <br>
+        <div id="pencil-size">
+            <input type="range" min="1" max="30" value="6" class="pencil-font-size">
+        </div>
+        <div class="pencil-color">
+            <button class="blue"></button>
+            <button class="black"></button>
+            <button class="red"></button>
+            <button class="yellow"></button>
+        </div>
+    </div>
+    <div class="eraser-options">
+        <br>
+        <div id="eraser-size">
+            <input type="range" min="1" max="60" value="6" class="eraser-size">
+        </div>
+    </div>
+    <div class="content">
+        <!-- canvas api made an html tag used for drawing via animations  -->
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <!-- written for referenece actually acc by DOM manupulation techniques -->
+    <!-- 
+    <div class="sticky">
+        <div class="sticky-headers">
+            <div class="minimize">-</div>
+            <div class="close">X</div>
+        </div>
+        <div class="sticky-content">
+            <textarea name="" id="stickybox" cols="30" rows="10"></textarea>
+        </div>
+    </div> 
+    -->
+
+    <!-- these file get into one on compiling as we do in style or js tag. we wrote so ti keep it separate .
+variable defined in one can be used in other as on execution time they got combined so as if we declare then use -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"
+        integrity="sha512-Jr0UIR/Q8MUX+93zjDOhuDUKLqJZObtwpkLJQcR9qMaLgL0thet39IORuavUaZFkZ8a4ktrUsKPM9mf5LWMduA=="
+        crossorigin="anonymous"></script>
+    <script>
+        // const socket = io("https://localhost:3000");
+        // const socket = io("https://interactive-board.herokuapp.com/"); 
+        const socket = io("https://interactive-server.herokuapp.com/");
+        //uploaded server on heroku can package for .exe or just do webapp by depoying frontend 
+
+        socket.emit("testing", `Hello from ${socket.id}`);
+        // name of event and data is sending
+        // no id here thus printing Hello from undefined
+    </script>
+
+    <!-- not using receiver -->
+    <!-- write in order of variable use so that no use before initialization -->
+    <script src="./script.js"></script>
+    <script src="./tools.js"></script>
+    <script src="./stickyUtility.js"></script>
+    <script src="./img.js"></script>
+    <script src="./createSticky.js"></script>
+    <script src="./animation.js"></script>
+    <script src="./socket.js"></script>
+</body>
+
+</html>

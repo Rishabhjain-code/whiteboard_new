@@ -8,16 +8,23 @@
 
  const express = require("express");
  const app = express(); //creating a server
- const http = require("http").createServer(app); //creating a port via app same used by socket.io
  const cors = require('cors')
- //  very important for cross pages request
  app.use(cors());
+ 
+ //  very important for cross pages request
+ 
+ app.use(express.static("public"));
+
+
+ const http = require("http").createServer(app); //creating a port via app same used by socket.io
  const io = require("socket.io")(http, {
      //  kahi s bhi request aae aane do
      cors: {
          origin: '*',
      }
  });
+
+ //pick code from public folder w ebought from frontend
 
  // app.use(express.json())
 
@@ -29,7 +36,8 @@
  //app request made on /home then run the callback function
 
  app.get("/", function (request, response) {
-     response.send("Welcome to web");
+     response.redirect("/index.html");
+    //  without redirecting also working
  })
 
  // http.listen(3000, function () {
@@ -97,5 +105,9 @@ let port = process.env.PORT || 3000;
   * 
   * whenevr mouse point created emit it on the same event here to server receive it then send to all the sockets by putting an emit in the server and on for all the sockets
   * 
+  * 
   * socket defined on index thus available to all the js files . each app will have it own socket
+  *
+//   * dont run main command it sets it to main instead of master direct commit then remote add then push
+  * 
   */

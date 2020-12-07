@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0px;
+}
+.tools {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+.tool img {
+  width: 3.5rem;
+}
+.content {
+  height: calc(100vh - 100px);
+  background: white;
+}
+#canvas {
+  /* giving css to canvas it creates issue in drawing it got zoomed */
+  /* height: 100%;
+  width: 100%;
+  background: aqua; */
+  /* changing the height width of the canavs */
+}
+.tool {
+  padding: 16px;
+}
+.toolbox {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  height: 80%;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+#draw {
+}
+#erase {
+}
+#undo {
+}
+.pencil-color button {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  position: relative;
+  left: 149px;
+}
+.pencil-color {
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+#pencil-size {
+  top: -5px;
+  position: relative;
+  left: 181px;
+}
+.pencil-options {
+  display: none;
+}
+.eraser-options {
+  display: none;
+}
+#eraser-size {
+  top: -5px;
+  position: relative;
+  left: 327px;
+}
+.active-options {
+  display: unset;
+}
+.active {
+  width: 84px;
+  border-radius: 50%;
+  align-items: center;
+  background: lightgrey;
+  height: 73px;
+  display: flex;
+}
+.sticky {
+  width: 220px;
+  /* to lift it up give position absolute then set via percentage to bring at a spot */
+  position: absolute;
+  top: 47%;
+  left: 25%;
+  border: 2px solid black;
+}
+.sticky-headers {
+  height: 30px;
+  background: lightblue;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+}
+.minimize {
+  font-family: cursive;
+  font-weight: bold;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 60%;
+  height: 23px;
+  background: purple;
+  width: 21px;
+  font-size: 26px;
+  left: -3px;
+  position: relative;
+}
+.close {
+  font-family: cursive;
+  font-weight: bold;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 60%;
+  background: red;
+  height: 23px;
+  width: 21px;
+}
+.sticky-content {
+}
+#stickybox {
+  border: none;
+  width: 216px;
+}
+.sticky-image {
+  width: 100%;
+  object-fit: contain;
+}
+.sticky-headers div {
+  position: relative;
+  top: 3px;
+  right: 1px;
+  margin-right: 4px;
+}
+.hide {
+  display: none;
+}
+#photo-upload {
+  display: none;
+}
+.tool-button {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  background: white;
+  height: 59%;
+  width: 4%;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 25px;
+}
+.fas {
+  font-size: 30px;
+  color: lightgray;
+}
+
+/* animations via css */
+
+@keyframes tool {
+  /* define stages in the animation during the process of transition */
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.add-animation {
+  animation-name: tool;
+  animation-duration: 1s;
+}
+
+/* fontawesome - icons in application 
+
+*/

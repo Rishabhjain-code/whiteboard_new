@@ -1,0 +1,7 @@
+written backend frontend together
+
+app.js load index.html
+pick code from public folder w ebought from frontend
+
+now run then localhost have the index.html
+thus on request to server you just have to redirect it
