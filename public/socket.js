@@ -1,11 +1,8 @@
 //matched with what max done mine extra
 
 socket.on("mouseDownReceived", function (eventObj) {
-    // context.strokeStyle = eventObj.color;
-    // context.lineWidth = eventObj.linewidth;
-
-    let myStrokeStyle = eventObj.color;
-    let mylineWidth = eventObj.linewidth;
+    let myStrokeStyle = context.strokeStyle;
+    let mylineWidth = context.lineWidth;
 
     // NOTE METHOD 1
     let lineObj = [];
